@@ -162,6 +162,31 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #151515;
 }
 
+/* Remove FullCalendar's own outer borders so they don't stack with the scrollgrid border */
+.fc .fc-scrollgrid td:first-child {
+  border-left: none;
+}
+
+.fc .fc-scrollgrid td:last-child {
+  border-right: none;
+}
+
+.fc .fc-scrollgrid th:first-child {
+  border-left: none;
+}
+
+.fc .fc-scrollgrid th:last-child {
+  border-right: none;
+}
+
+.fc .fc-scrollgrid tr:last-child td {
+  border-bottom: none;
+}
+
+.fc .fc-scrollgrid-section:last-child td {
+  border-bottom: none;
+}
+
 .fc table {
   border-collapse: separate;
   border-spacing: 0;
