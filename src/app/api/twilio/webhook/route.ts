@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { validateTwilioSignature, adminPhoneNumber } from "@/lib/twilio";
+import { sendSubmitterApprovalEmail } from "@/lib/resend";
 import { escapeXml } from "@/lib/utils";
 
 function twimlResponse(message: string): NextResponse {
@@ -50,6 +51,10 @@ export async function POST(request: NextRequest) {
         data: { status: "approved" },
       });
 
+      sendSubmitterApprovalEmail(pendingEvent).catch((err) =>
+        console.error("Failed to send approval email:", err)
+      );
+
       return twimlResponse(`Approved: "${pendingEvent.title}"`);
     }
 
@@ -73,6 +78,10 @@ export async function POST(request: NextRequest) {
         where: { id: event.id },
         data: { status: "approved" },
       });
+
+      sendSubmitterApprovalEmail(event).catch((err) =>
+        console.error("Failed to send approval email:", err)
+      );
 
       return twimlResponse(`Approved: "${event.title}"`);
     }

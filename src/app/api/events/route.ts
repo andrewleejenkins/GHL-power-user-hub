@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { eventSubmissionSchema } from "@/lib/validators";
 import { sendAdminSms } from "@/lib/twilio";
+import {
+  sendAdminNewEventEmail,
+  sendSubmitterConfirmationEmail,
+} from "@/lib/resend";
 import { formatDateTime } from "@/lib/utils";
 
 export async function GET() {
@@ -68,6 +72,12 @@ export async function POST(request: NextRequest) {
         data: { twilioMessageSid: messageSid },
       });
     }
+
+    // Send email notifications (fire-and-forget)
+    Promise.allSettled([
+      sendAdminNewEventEmail(event),
+      sendSubmitterConfirmationEmail(event),
+    ]).catch((err) => console.error("Email notification error:", err));
 
     return NextResponse.json(
       { message: "Event submitted for review", id: event.id },
