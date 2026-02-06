@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { eventSubmissionSchema } from "@/lib/validators";
-import { sendAdminSms } from "@/lib/twilio";
+// import { sendAdminSms } from "@/lib/twilio";
 import {
   sendAdminNewEventEmail,
   sendSubmitterConfirmationEmail,
 } from "@/lib/resend";
-import { formatDateTime } from "@/lib/utils";
+// import { formatDateTime } from "@/lib/utils";
 
 export async function GET() {
   const events = await prisma.event.findMany({
@@ -55,25 +55,26 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const smsMessage = [
-      `New event submitted: "${event.title}"`,
-      `When: ${formatDateTime(event.dateTime.toISOString())}`,
-      `Where: ${event.location}`,
-      `By: ${event.organizerName}`,
-      ``,
-      `Reply 1 to approve or APPROVE ${event.approvalToken}`,
-    ].join("\n");
+    // SMS approval disabled until Twilio phone number is approved
+    // const smsMessage = [
+    //   `New event submitted: "${event.title}"`,
+    //   `When: ${formatDateTime(event.dateTime.toISOString())}`,
+    //   `Where: ${event.location}`,
+    //   `By: ${event.organizerName}`,
+    //   ``,
+    //   `Reply 1 to approve or APPROVE ${event.approvalToken}`,
+    // ].join("\n");
+    //
+    // const messageSid = await sendAdminSms(smsMessage);
+    //
+    // if (messageSid) {
+    //   await prisma.event.update({
+    //     where: { id: event.id },
+    //     data: { twilioMessageSid: messageSid },
+    //   });
+    // }
 
-    const messageSid = await sendAdminSms(smsMessage);
-
-    if (messageSid) {
-      await prisma.event.update({
-        where: { id: event.id },
-        data: { twilioMessageSid: messageSid },
-      });
-    }
-
-    // Send email notifications (fire-and-forget)
+    // Send email notifications
     Promise.allSettled([
       sendAdminNewEventEmail(event),
       sendSubmitterConfirmationEmail(event),

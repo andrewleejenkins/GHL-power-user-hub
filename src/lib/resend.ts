@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import { formatDateTime } from "@/lib/utils";
 
 const apiKey = process.env.RESEND_API_KEY || "";
-const fromAddress = "calendar@n.andrewleejenkins.com";
+const fromAddress = "calendar@n.ghlpu.com";
 const adminEmail = "me@andrewleejenkins.com";
 
 function isConfigured(): boolean {
