@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter_Tight, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -28,10 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interTight.variable} ${outfit.variable} antialiased flex min-h-screen flex-col`}
+        className={`${interTight.variable} ${outfit.variable} antialiased flex min-h-screen flex-row`}
       >
-        <Header />
-        <main className="flex-1">{children}</main>
+        <Sidebar />
+        <div className="flex flex-col flex-1 min-w-0">
+          <Header />
+          <main className="flex-1">{children}</main>
+        </div>
       </body>
     </html>
   );
