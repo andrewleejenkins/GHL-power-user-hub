@@ -20,7 +20,7 @@ body {
 
 /* FullCalendar — professional styling */
 .fc {
-  --fc-border-color: #e5e7eb;
+  --fc-border-color: #c8c8c8;
   --fc-button-bg-color: #ffffff;
   --fc-button-border-color: #d1d5db;
   --fc-button-text-color: #374151;
@@ -52,6 +52,7 @@ body {
   font-size: 1.125rem;
   font-weight: 900;
   color: #111827;
+  text-transform: uppercase;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -190,4 +191,9 @@ h1, h2, h3, h4, h5, h6 {
 .fc table {
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.fc td,
+.fc th {
+  border-width: 0.5px;
 }
