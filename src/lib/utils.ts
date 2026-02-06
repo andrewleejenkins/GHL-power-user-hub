@@ -19,16 +19,3 @@ export function escapeXml(str: string): string {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
 }
-
-export const CATEGORIES = [
-  "General",
-  "Community",
-  "Sports",
-  "Arts & Culture",
-  "Education",
-  "Music",
-  "Food & Drink",
-  "Fundraiser",
-  "Meeting",
-  "Other",
-] as const;

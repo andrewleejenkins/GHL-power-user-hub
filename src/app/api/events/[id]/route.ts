@@ -18,7 +18,6 @@ export async function GET(
       location: true,
       organizerName: true,
       organizerEmail: true,
-      category: true,
       status: true,
       createdAt: true,
     },

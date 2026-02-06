@@ -17,7 +17,6 @@ export async function GET() {
       location: true,
       organizerName: true,
       organizerEmail: true,
-      category: true,
       status: true,
       createdAt: true,
     },
@@ -49,7 +48,6 @@ export async function POST(request: NextRequest) {
         location: data.location,
         organizerName: data.organizerName,
         organizerEmail: data.organizerEmail,
-        category: data.category,
       },
     });
 

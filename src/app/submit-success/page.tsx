@@ -2,30 +2,45 @@ import Link from "next/link";
 
 export default function SubmitSuccessPage() {
   return (
-    <main className="mx-auto max-w-xl px-4 py-16 text-center">
-      <div className="rounded-lg bg-green-50 p-8">
-        <h1 className="text-2xl font-bold text-green-800">
-          Event Submitted!
+    <div className="mx-auto max-w-lg px-6 py-16">
+      <div className="p-8 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+          <svg
+            className="h-6 w-6 text-green-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m4.5 12.75 6 6 9-13.5"
+            />
+          </svg>
+        </div>
+        <h1 className="text-xl font-semibold text-gray-900">
+          Event Submitted
         </h1>
-        <p className="mt-3 text-sm text-green-700">
-          Thank you for submitting your event. It will be reviewed by an
-          administrator and will appear on the calendar once approved.
+        <p className="mt-2 text-sm text-gray-500">
+          Thank you! Your event will be reviewed by an administrator and will
+          appear on the calendar once approved.
         </p>
         <div className="mt-6 flex justify-center gap-3">
           <Link
             href="/"
-            className="rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-300 hover:bg-gray-50"
+            className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
           >
             View Calendar
           </Link>
           <Link
             href="/submit"
-            className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
+            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
           >
             Submit Another
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

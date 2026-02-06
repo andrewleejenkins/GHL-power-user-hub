@@ -2,25 +2,38 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-xl font-bold text-gray-900">
-          Community Calendar
+    <header className="bg-white border-b border-gray-200">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 h-14">
+        <Link href="/" className="flex items-center gap-2 font-semibold text-gray-900">
+          <svg
+            className="h-5 w-5 text-blue-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+            />
+          </svg>
+          Power Users Community Calendar
         </Link>
-        <nav className="flex gap-4">
+        <div className="flex items-center gap-1">
           <Link
             href="/"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+            className="rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
           >
             Calendar
           </Link>
           <Link
             href="/submit"
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+            className="ml-2 rounded-md bg-blue-600 px-3.5 py-1.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
           >
-            Submit Event
+            Submit Request
           </Link>
-        </nav>
+        </div>
       </div>
     </header>
   );

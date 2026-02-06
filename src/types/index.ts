@@ -7,7 +7,6 @@ export interface CalendarEvent {
   location: string;
   organizerName: string;
   organizerEmail: string;
-  category: string;
   status: "pending" | "approved" | "rejected";
   createdAt: string;
 }
@@ -20,5 +19,4 @@ export interface EventFormData {
   location: string;
   organizerName: string;
   organizerEmail: string;
-  category: string;
 }

@@ -9,7 +9,6 @@ export const eventSubmissionSchema = z
     location: z.string().min(1, "Location is required").max(500),
     organizerName: z.string().min(1, "Your name is required").max(200),
     organizerEmail: z.string().email("Valid email is required"),
-    category: z.string().min(1, "Category is required"),
   })
   .refine(
     (data) => {
