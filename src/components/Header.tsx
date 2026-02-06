@@ -1,8 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-white border-b border-gray-200 relative">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 h-14">
         <Link href="/" className="flex items-center gap-2 text-gray-900 uppercase" style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontWeight: 900 }}>
           <svg
@@ -20,7 +25,8 @@ export default function Header() {
           </svg>
           Power Users Community Calendar
         </Link>
-        <div className="flex items-center gap-1">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-1">
           <Link
             href="/"
             className="rounded-md px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
@@ -34,7 +40,38 @@ export default function Header() {
             Submit Request
           </Link>
         </div>
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden rounded-md p-1.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+          >
+            {menuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            )}
+          </svg>
+        </button>
       </div>
+      {menuOpen && (
+        <div className="md:hidden absolute right-0 top-14 z-50 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-1">
+          <Link
+            href="/"
+            onClick={() => setMenuOpen(false)}
+            className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+          >
+            Calendar
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
