@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="bg-white border-b border-gray-200">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 h-14">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-gray-900">
+        <Link href="/" className="flex items-center gap-2 text-gray-900 uppercase" style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontWeight: 900 }}>
           <svg
             className="h-5 w-5 text-[#8b0000]"
             fill="none"
