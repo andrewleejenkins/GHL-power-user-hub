@@ -44,8 +44,8 @@ export async function sendAdminNewEventEmail(
       <li><strong>By:</strong> ${event.organizerName} (${event.organizerEmail})</li>
     </ul>
     <p>
-      <a href="${approveUrl}" style="display:inline-block;padding:12px 24px;background:#22c55e;color:#fff;text-decoration:none;border-radius:6px;margin-right:12px;">Approve</a>
-      <a href="${rejectUrl}" style="display:inline-block;padding:12px 24px;background:#ef4444;color:#fff;text-decoration:none;border-radius:6px;">Reject</a>
+      <a href="${approveUrl}" style="display:inline-block;padding:12px 24px;background:#8b0000;color:#fff;text-decoration:none;border-radius:9999px;margin-right:12px;">Approve</a>
+      <a href="${rejectUrl}" style="display:inline-block;padding:12px 24px;background:#8b0000;color:#fff;text-decoration:none;border-radius:9999px;">Reject</a>
     </p>
   `;
 

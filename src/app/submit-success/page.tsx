@@ -35,7 +35,7 @@ export default function SubmitSuccessPage() {
           </Link>
           <Link
             href="/submit"
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+            className="rounded-md bg-[#8b0000] px-4 py-2 text-sm font-medium text-white hover:bg-[#6b0000] transition-colors"
           >
             Submit Another
           </Link>

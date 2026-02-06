@@ -53,7 +53,7 @@ export default function EventSubmitForm() {
   }
 
   const inputClass =
-    "block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors";
+    "block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-[#a50000] focus:outline-none focus:ring-1 focus:ring-[#a50000] transition-colors";
   const labelClass = "block text-xs font-medium uppercase tracking-wide text-gray-500 mb-1";
 
   return (
@@ -202,7 +202,7 @@ export default function EventSubmitForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        className="w-full rounded-md bg-[#8b0000] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#6b0000] disabled:opacity-50 transition-colors"
       >
         {submitting ? "Submitting..." : "Submit Request"}
       </button>

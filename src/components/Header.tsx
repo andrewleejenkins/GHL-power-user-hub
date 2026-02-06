@@ -6,7 +6,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 h-14">
         <Link href="/" className="flex items-center gap-2 font-semibold text-gray-900">
           <svg
-            className="h-5 w-5 text-blue-600"
+            className="h-5 w-5 text-[#8b0000]"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
@@ -29,7 +29,7 @@ export default function Header() {
           </Link>
           <Link
             href="/submit"
-            className="ml-2 rounded-md bg-blue-600 px-3.5 py-1.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+            className="ml-2 rounded-md bg-[#8b0000] px-3.5 py-1.5 text-sm font-medium text-white hover:bg-[#6b0000] transition-colors"
           >
             Submit Request
           </Link>
