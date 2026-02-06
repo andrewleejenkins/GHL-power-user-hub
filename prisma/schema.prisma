@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Event {
+  id               String   @id @default(cuid())
+  title            String
+  description      String
+  dateTime         DateTime
+  endDateTime      DateTime
+  location         String
+  organizerName    String
+  organizerEmail   String
+  category         String   @default("general")
+  status           String   @default("pending")
+  approvalToken    String   @unique @default(cuid())
+  twilioMessageSid String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
